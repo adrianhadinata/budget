@@ -6,14 +6,6 @@ E-BUDGETING is a Web App for helping Accounting & Finance Department to managing
 
 **-> Main Feature:**
 
-- 3 level Approval
-- 5 different role
-- 2 Currency (IDR & USD) 
-- Monthly Report
-- WhatsApp notification using WhatsApp API (Under my development too) 
-- Cashier Voucher Flow
-- Budget Responsibility Flow
-- Budget & Item Monitoring
 
 ###################
 Techstack
@@ -42,14 +34,6 @@ Modules / Libraries / Frameworks
 Documentation
 ###################
 
-**- Guide book for input admin role:**
-
-  Link: https://drive.google.com/file/d/1kAFDx7V8wn20UfvsvnwC0_Fev2yPKz2-/view?usp=share_link
-
-**- Guide video about WhatsApp Notification:**
-
-  Link: https://www.youtube.com/watch?v=S0d-12OLuVE&list=PLvIbFU6EsKex829uQClqYirEl_tXCHaLc
-
 
 ###################
 Server Requirements
@@ -67,7 +51,7 @@ Author
 ###################
 License
 ###################
-Copyright © 2023, MIS Dept - PT. Globalindo Intimates
+Copyright © 2023,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

@@ -90,6 +90,7 @@ class Form extends CI_Controller
             'app' => $this->input->post('app'),
             'app1' => $this->input->post('app1'),
         );
+        $this->Form_model->changeStatusBudget($data2, $id_mform);
 
         echo json_encode($data2);
     }
@@ -106,6 +107,43 @@ class Form extends CI_Controller
         $id = $this->input->post('id');
         $result['data'] = $this->Form_model->ttl($id);
         echo json_encode($result);
+    }
+
+    public function u_modal()
+    {
+        $id = $this->input->post('id_vform');
+        $id_mform = $this->input->post('id_mform');
+
+        $data = array(
+            'budget' => $this->input->post('budget'),
+            'description' => $this->input->post('description'),
+            'date_modified' => $this->input->post('date_modified'),
+        );
+
+        $this->Form_model->updateDataSaveModal($data, $id);
+
+        $data2 = array(
+            'app' => $this->input->post('app'),
+            'app1' => $this->input->post('app1'),
+        );
+
+        $this->Form_model->changeStatusBudget($data2, $id_mform);
+        echo json_encode($data);
+    }
+
+    public function del_vform()
+    {
+        $id = $this->input->post('id_vform');
+        $id_mform = $this->input->post('id_mform');
+
+        $this->Form_model->del_vform_vformapp($id);
+
+        $data2 = array(
+            'app' => $this->input->post('app'),
+            'app1' => $this->input->post('app1'),
+        );
+
+        $this->Form_model->changeStatusBudget($data2, $id_mform);
     }
 
     //
@@ -159,33 +197,6 @@ class Form extends CI_Controller
     {
         $result['data'] = $this->Form_model->loadDept();
         echo json_encode($result);
-    }
-
-    public function u_modal()
-    {
-        $data = array(
-            'order' => $this->input->post('order'),
-            'remarks' => $this->input->post('remarks'),
-            'date_modified' => $this->input->post('date_modified'),
-            'no_po' => $this->input->post('no_po'),
-            'unit' => $this->input->post('unit'),
-            'price' => $this->input->post('price'),
-            'payment' => $this->input->post('payment'),
-        );
-        $id = $this->input->post('id');
-        $this->Form_model->updateDataSaveModal($data, $id);
-        $this->Form_model->updateDataSaveClone($data, $id);
-        echo json_encode($data);
-        $id_mform = $this->input->post('id_mform');
-        $data2 = array(
-            'appMan' => $this->input->post('appMan'),
-            'appAccp' => $this->input->post('appAccp'),
-            'appGm' => $this->input->post('appGm'),
-            'active' => $this->input->post('active'),
-        );
-        $this->Form_model->changeStatusBudget($data2, $id_mform);
-        $idMform = $id_mform;
-        $this->Form_model->resetCountingWhatsapp($idMform);
     }
 
     public function u_modals()
@@ -311,22 +322,6 @@ class Form extends CI_Controller
         $id_mvoc = $this->input->get('id_mvoc');
         $result['data'] = $this->Voc_model->load_for_pj($id_mvoc);
         echo json_encode($result);
-    }
-
-    public function del_vform()
-    {
-        $id = $this->input->post('id');
-        $this->Form_model->del_vform_vformapp($id);
-
-        $id_mform = $this->input->post('id_mform');
-        $data2 = array(
-            'appMan' => 1,
-            'appAccp' => 1,
-            'appGm' => 1,
-            'active' => 1,
-        );
-
-        $this->Form_model->changeStatusBudget($data2, $id_mform);
     }
 
     public function count()

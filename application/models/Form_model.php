@@ -58,7 +58,13 @@ class Form_model extends ci_model
         $this->db->update('mform', $data2);
     }
 
-    //
+    public function del_vform_vformapp($id)
+    {
+        $query = "DELETE vform FROM vform WHERE vform.id = $id";
+        $this->db->query($query);
+    }
+
+    // NOT USED YET
 
     public function loadDataApp()
     {
@@ -1012,14 +1018,6 @@ class Form_model extends ci_model
         mstore
         ";
         return $this->db->query($data);
-    }
-
-    public function del_vform_vformapp($id)
-    {
-        $query = "DELETE vform, vform_app
-        FROM vform, vform_app
-        WHERE vform.id = vform_app.id AND vform.id = $id";
-        $this->db->query($query);
     }
 
     public function sum_per_dept($label, $year, $id_cur, $id_dept)
