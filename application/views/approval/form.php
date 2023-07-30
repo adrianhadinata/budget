@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Approval Manager</h4>
+                        <h4 class="mb-sm-0">Approval</h4>
                     </div>
                 </div>
             </div>
@@ -23,13 +23,10 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">No.</th>
-                                                <th class="text-center">Date Created</th>
-                                                <th class="text-center">Label</th>
-                                                <th class="text-center">Month</th>
-                                                <th class="text-center">Department</th>
                                                 <th class="text-center">Form Number</th>
+                                                <th class="text-center">Date Created</th>
+                                                <th class="text-center">Status</th>
                                                 <th class="text-center">Action</th>
-                                                <th class="text-center">Acc?</th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
@@ -52,92 +49,34 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <table class="table table-hover" id="table_edit_header">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align:center;">Category:</th>
-                                        <th style="text-align:center;">Department:</th>
-                                        <th style="text-align:center;">Month:</th>
-                                        <th style="text-align:center;">Date Created:</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td style="text-align:center;" id="cc1"></td>
-                                        <td style="text-align:center;" id="dc1"></td>
-                                        <td style="text-align:center;" id="mc1"></td>
-                                        <td style="text-align:center;" id="yc1"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                         <div class="col-lg-12 text-center">
-                            <h2>Item List</h2>
+                            <h2>Budget List</h2>
                         </div>
                         <div class="col-lg-12" style="overflow:auto;">
-                            <table class="table" id="load_details">
+                            <table class="table" id="load_details" style="width: 100%">
                                 <thead>
                                     <tr>
                                         <th class="text-center">No.</th>
                                         <th class="text-center">Description</th>
-                                        <th class="text-center">PO Supplier</th>
-                                        <th class="text-center">Stock</th>
-                                        <th class="text-center">Order</th>
-                                        <th class="text-center">Unit</th>
-                                        <th class="text-center">Price</th>
-                                        <th class="text-center">Total</th>
-                                        <th class="text-center">Currency</th>
-                                        <th class="text-center">Payment</th>
-                                        <th class="text-center">Remarks</th>
-                                        <th class="text-center">Created</th>
-                                        <th class="text-center">Modified</th>
-                                        <th class="text-center">Action</th>
+                                        <th class="text-center">Budget</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th class="text-center">No.</th>
-                                        <th class="text-center">Description</th>
-                                        <th class="text-center">PO Supplier</th>
-                                        <th class="text-center">Stock</th>
-                                        <th class="text-center">Order</th>
-                                        <th class="text-center">Unit</th>
-                                        <th class="text-center">Price</th>
-                                        <th class="text-center">Total</th>
-                                        <th class="text-center">Currency</th>
-                                        <th class="text-center">Payment</th>
-                                        <th class="text-center">Remarks</th>
-                                        <th class="text-center">Created</th>
-                                        <th class="text-center">Modified</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </tfoot>
                             </table>
-                        </div>
-                        <div class="col-lg-6">
-                            <img src="<?= base_url() ?>assets/images/logo.png" style="width: 100%;margin-left: 1%;height: 70%;align-self: center; margin-top:3%;">
                         </div>
                         <div class="col-lg-6">
                             <table class="table table-hover tablee" id="tableT">
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>
-                                        <th class="text-center">Cash </th>
-                                        <th class="text-center">PO</th>
-                                        <th class="text-center">All in</th>
-                                        <th class="text-center">$</th>
+                                        <th class="text-center">Rp.</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tbody">
                                     <tr>
                                         <td class="text-center">Total</td>
                                         <td class="text-center" id="tfc1"></td>
-                                        <td class="text-center" id="tft1"></td>
-                                        <td class="text-center" id="ttl1"></td>
-                                        <td class="text-center" id="dlr1"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -156,7 +95,7 @@
     <!-- End Modal Edit -->
 
     <!-- Modal Edit Modal -->
-    <div class="modal fade" id="modal_edit_modal">
+    <!-- <div class="modal fade" id="modal_edit_modal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div id="modal-header" class="modal-header">
@@ -206,7 +145,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Modal Edit Modal -->
 
     <?php include APPPATH . 'views/template/footer.php' ?>
