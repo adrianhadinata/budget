@@ -103,4 +103,28 @@ class Form_model extends ci_model
     }
 
     // End of script untuk approval
+
+    // Start of script untuk report
+
+    public function loadFormAcc()
+    {
+        $data = "SELECT
+        SUM( vform.budget) total,
+        mform.id,
+        mform.nf,
+        mform.detail_created,
+        mform.date_modified,
+        mform.app,
+        mform.app1
+        FROM
+        vform
+        LEFT JOIN mform ON mform.id = vform.id_mform
+        WHERE mform.app = 1
+        GROUP BY mform.id";
+
+        $query = $this->db->query($data);
+        return $query->result();
+    }
+
+    // End of script untuk report
 }

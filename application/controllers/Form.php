@@ -166,4 +166,14 @@ class Form extends CI_Controller
     }
 
     // End of script untuk approval
+
+    // Start of script untuk report
+
+    public function getDataAcc()
+    {
+        $result['data'] = $this->Form_model->loadFormAcc();
+        echo json_encode($result);
+    }
+
+    // End of script untuk report
 }

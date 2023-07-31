@@ -3,40 +3,25 @@
 
 <script>
     $(document).ready(function() {
-        const VIEW_INPUT_EDIT_TOTAL = $('#editTotalView');
-        const VIEW_INPUT_EDIT_PRICE = $('#editPriceView');
         $('#vertical-menu-btn').on('click', function() {
             setTimeout(function() {
                 tabelMForm.columns.adjust().draw();
             }, 100);
         });
 
-        $('#loading').hide();
-
         let tabelMForm;
-        let tableT;
-
-        tableT = $('#tableT').DataTable({
-            searching: false,
-            info: false,
-            paging: false
-        });
 
         tabelMForm = $('#table_mform').DataTable({
             scrollY: 500,
             scrollX: true,
             scrollCollapse: true,
             paging: true,
-            fixedColumns: {
-                left: 1,
-                right: 1
-            },
-            fixedHeader: {
-                header: true,
-                footer: false
-            },
+            dom: 'Bfrtip',
+            buttons: [
+                'excelHtml5',
+            ],
             ajax: {
-                url: '<?= site_url('Form/getDataGm') ?>',
+                url: '<?= site_url('Form/getDataAcc') ?>',
                 type: 'GET'
             },
             columnDefs: [{
@@ -53,109 +38,21 @@
                 },
                 {
                     targets: 2,
-                    'data': 'category',
-                    render: function(data, type, row) {
-                        if (data == 'Urgent') {
-                            return `<span class="btn btn-danger btn-sm urg">${data}</label>`
-                        } else if (data == 'Monthly') {
-                            return `<span class="btn btn-info btn-sm inf">${data}</label>`
-                        }
-
-                    }
-                },
-                {
-                    targets: 3,
-                    'data': 'month'
-                },
-                {
-                    targets: 4,
-                    'data': 'idDept',
-                    'className': 'text-center',
-                    render: function(data) {
-                        if (data == 1) {
-                            return 'PRODUCTION'
-                        } else if (data == 2) {
-                            return 'FINANCE & ACCOUNTING'
-                        } else if (data == 3) {
-                            return 'MIS'
-                        } else if (data == 4) {
-                            return 'PPIC'
-                        } else if (data == 5) {
-                            return 'INDUSTRIAL ENGINEERING'
-                        } else if (data == 6) {
-                            return 'GENERAL AFFAIRS'
-                        } else if (data == 7) {
-                            return 'WAREHOUSE'
-                        } else if (data == 8) {
-                            return 'SAMPLE'
-                        } else if (data == 9) {
-                            return 'QUALITY CONTROL'
-                        } else if (data == 10) {
-                            return 'CUTTING'
-                        } else if (data == 11) {
-                            return 'MOLDING'
-                        } else if (data == 12) {
-                            return 'PACKING'
-                        } else if (data == 13) {
-                            return 'HUMAN RESOURCES'
-                        } else if (data == 14) {
-                            return 'EXIM'
-                        } else if (data == 15) {
-                            return 'MECHANIC'
-                        } else if (data == 16) {
-                            return 'TROUBLESHOOTING'
-                        } else if (data == 17) {
-                            return 'CADCAM'
-                        }
-                    }
-                },
-                {
-                    targets: 5,
                     'data': 'nf'
                 },
                 {
-                    targets: 6,
-                    'data': 'appMan',
-                    'className': 'text-center',
-                    render: function(data, type, row) {
-                        if (data == 2) {
-                            return `<span class='btn btn-sm btn-success acc'>${(row.app1) ? row.app1 : "0000-00-00 00:00:00"}</span>`
-                            // return `<label class='btn btn-sm btn-success acc'><i class="fas fa-check"></i></label>`
-                        }
-                    }
+                    targets: 3,
+                    'data': 'total'
                 },
                 {
-                    targets: 7,
-                    'data': 'appAccp',
-                    'className': 'text-center',
-                    render: function(data, type, row) {
-                        if (data == 2) {
-                            return `<span class='btn btn-sm btn-success acc'>${(row.app2) ? row.app2 : "0000-00-00 00:00:00"}</span>`
-                            // return `<label class='btn  btn-sm btn-success acc'><i class="fas fa-check"></i></label>`
-                        }
-                    }
-
-                },
-                {
-                    targets: 8,
+                    targets: 4,
                     'data': null,
                     'className': 'text-center',
                     render: function(data, type, row) {
-                        return `<label class='btn btn-sm btn-info' id="btn-edit"><i class="fas fa-pencil-alt"></i></label>`
-                    }
-                },
-                {
-                    targets: 9,
-                    'data': null,
-                    'className': 'text-center',
-                    render: function(data, type, row) {
-                        return `<label class='btn  btn-sm btn-success' id="btnAcc"><i class="fas fa-check"></i></label> <label class='btn  btn-sm btn-danger' id="btnDec"><i class="fas fa-times"></i></label>`
+                        return `<button class='btn btn-sm btn-info' id="btn-edit" title="Add/Edit Budget"><i class="fas fa-pencil-alt"></i></button>`
                     }
                 }
             ],
-            order: [
-                [2, 'desc']
-            ]
         });
 
         let tableLD;
