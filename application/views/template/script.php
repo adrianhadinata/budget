@@ -56,7 +56,7 @@
                         if (row['app'] == "1") {
                             return `<span class="btn btn-sm btn-success" id="btnApp">Approved</span>`
                         } else {
-                            return `<button class='btn btn-sm btn-info' id="btn-edit" title="Add/Edit Budget"><i class="fas fa-pencil-alt"></i></button>`
+                            return `<button class='btn btn-sm btn-info' id="btn-edit" title="Add/Edit Budget"><i class="fas fa-pencil-alt"></i></button> <button class='btn btn-sm btn-danger' id="btn-delete" title="Add/Edit Budget"><i class="fas fa-trash"></i></button>`
                         }
                     }
                 },
@@ -187,6 +187,37 @@
             $('#modal_edit_title').text('Details form ' + nf);
             $('#id_mform').val(id);
             $('#modal_edit').prependTo("body").modal("show");
+        });
+
+        // Tambah atau hapus item / description yang ada di form number
+        $('#table_mform tbody').on('click', '#btn-delete', function() {
+            let id = tabelMForm.row($(this).parents('tr')).data().id;
+            console.log(id);
+            Swal.fire({
+                icon: 'warning',
+                title: 'Warning!',
+                html: '<p>' + 'Are you sure?' + '<br>' + "this action can't be undo" + '</p>',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Delete!',
+                cancelButtonText: 'No',
+            }).then(function(result) {
+                if (result.value) {
+                    $.ajax({
+                        url: '<?= site_url('Form/del_mform') ?>',
+                        type: 'POST',
+                        data: {
+                            'id_mform': id
+                        },
+                        success: function() {
+                            window.location.reload();
+                        }
+                    })
+                }
+            })
+
+
         });
 
         // Save item / description baru

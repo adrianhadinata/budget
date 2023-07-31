@@ -4,7 +4,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Form_model extends ci_model
 {
     // Start of script untuk admin
-
+    public function insert($data)
+    {
+        $this->db->insert("mform", $data);
+        return $this->db->insert_id();
+    }
     public function loadData()
     {
         $data = "SELECT
@@ -63,6 +67,12 @@ class Form_model extends ci_model
     public function del_vform_vformapp($id)
     {
         $query = "DELETE vform FROM vform WHERE vform.id = $id";
+        $this->db->query($query);
+    }
+
+    public function delete($id_mform)
+    {
+        $query = "DELETE mform FROM mform WHERE mform.id = $id_mform";
         $this->db->query($query);
     }
 

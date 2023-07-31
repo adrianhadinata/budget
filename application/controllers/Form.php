@@ -79,6 +79,22 @@ class Form extends CI_Controller
         echo json_encode($result);
     }
 
+    public function getDataSave()
+    {
+        $nf = $this->input->post('nf');
+        $detail_created = $this->input->post('detail_created');
+        $date_modified = $this->input->post('date_modified');
+
+        $data = array(
+            'nf' => $nf,
+            'detail_created' => $detail_created,
+            'date_modified' => $date_modified,
+        );
+
+        $result = $this->Form_model->insert($data);
+        echo json_encode($result);
+    }
+
     public function getDataSaveModal()
     {
         $id_mform = $this->input->post('id_mform');
@@ -150,6 +166,14 @@ class Form extends CI_Controller
         );
 
         $this->Form_model->changeStatusBudget($data2, $id_mform);
+    }
+
+    public function del_mform()
+    {
+        $id_mform = $this->input->post('id_mform');
+
+        $this->Form_model->delete($id_mform);
+        echo json_encode($id_mform);
     }
 
     // End of Script untuk admin
