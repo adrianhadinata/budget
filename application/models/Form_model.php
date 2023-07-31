@@ -66,6 +66,18 @@ class Form_model extends ci_model
         $this->db->query($query);
     }
 
+    public function sum_mform_by_id()
+    {
+        $data = "SELECT
+        count( mform.id ) total 
+        FROM
+        mform 
+        WHERE
+        MONTH ( mform.detail_created ) = MONTH ( CURDATE( ) ) ";
+        $query = $this->db->query($data);
+        return $query->result();
+    }
+
     // End of script untuk admin
 
     // Start of script untuk approval

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/img/logo/logo_saja_GI.png">
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/img/logo/logo.png">
     <title>Login Page</title>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/output.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/all.min.621.css" />
@@ -21,7 +21,7 @@
         </div>
         <form class="flex flex-col justify-center items-center w-1/2" style=" margin: auto;" method="post" action="<?= base_url() ?>Dashboard">
             <img class="" src="<?php echo base_url() ?>assets/img/logo/logo.png" />
-            <h5 class="my-4 font-display text-center">E - Budgeting</h5>
+            <h5 class="my-4 font-display text-center">Budget App</h5>
             <?= $this->session->flashdata('message'); ?>
             <div class="relative form-group">
                 <i class="fa fa-user absolute" style="font-size: 14px; line-height: 28px; margin-left: 10px;"></i>
@@ -39,7 +39,7 @@
         </form>
 
         <div class="text-center" style="justify-content:center; width:100vw; display:flex; flex-direction: column;">
-            <span>© 2023, MIS - PT. Globalindo Intimates.</span>
+            <span>© 2023, Adrian Hadinata - HH Computindo</span>
         </div>
     </div>
     <!-- JavaScript Bundle with Popper -->

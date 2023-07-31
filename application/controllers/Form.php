@@ -1,9 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-
 class Form extends CI_Controller
 {
     function __construct()
@@ -73,6 +70,13 @@ class Form extends CI_Controller
 
         $data['no_mform'] = $no_mform;
         $this->load->view('form/form', $data);
+    }
+
+    public function getData()
+    {
+        $d = $this->session->userdata('id_dept');
+        $result['data'] = $this->Form_model->loadData($d);
+        echo json_encode($result);
     }
 
     public function getDataSaveModal()
