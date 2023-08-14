@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/img/logo/logo.png">
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/img/logo/logo-sm.png">
     <title>Login Page</title>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/output.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/all.min.621.css" />
@@ -39,7 +39,7 @@
         </form>
 
         <div class="text-center" style="justify-content:center; width:100vw; display:flex; flex-direction: column;">
-            <span>© 2023, Adrian Hadinata - HH Computindo</span>
+            <span>© 2023, CV. Tigera Cyber Solution</span>
         </div>
     </div>
     <!-- JavaScript Bundle with Popper -->
