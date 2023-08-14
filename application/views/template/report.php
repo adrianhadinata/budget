@@ -44,14 +44,14 @@
                     targets: 3,
                     'data': 'total'
                 },
-                {
-                    targets: 4,
-                    'data': null,
-                    'className': 'text-center',
-                    render: function(data, type, row) {
-                        return `<button class='btn btn-sm btn-info' id="btn-edit" title="Add/Edit Budget"><i class="fas fa-pencil-alt"></i></button>`
-                    }
-                }
+                // {
+                //     targets: 4,
+                //     'data': null,
+                //     'className': 'text-center',
+                //     render: function(data, type, row) {
+                //         return `<button class='btn btn-sm btn-info' id="btn-edit" title="Add/Edit Budget"><i class="fas fa-pencil-alt"></i></button>`
+                //     }
+                // }
             ],
         });
 

@@ -26,7 +26,7 @@
                                                 <th class="text-center">Form Number</th>
                                                 <th class="text-center">Date Created</th>
                                                 <th class="text-center">Total (Rp.)</th>
-                                                <th class="text-center">Actions</th>
+                                                <!-- <th class="text-center">Actions</th> -->
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
