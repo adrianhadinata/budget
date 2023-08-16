@@ -339,6 +339,7 @@
                         tableLD.ajax.reload();
                         tabelMForm.ajax.reload();
                         tableT.ajax.reload();
+                        $("#closeModalEditModal").click();
                     }
                 })
             }

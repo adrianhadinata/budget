@@ -88,6 +88,12 @@ class Form_model extends ci_model
         return $query->result();
     }
 
+    public function updateDataSaveModal($data, $id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('vform', $data);
+    }
+
     // End of script untuk admin
 
     // Start of script untuk approval
