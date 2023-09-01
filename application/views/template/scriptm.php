@@ -58,7 +58,7 @@
                     'data': null,
                     'className': 'text-center',
                     render: function(data, type, row) {
-                        return `<label class='btn btn-sm btn-success' id="btnAcc"><i class="fas fa-check"></i></label>  <label class='btn btn-sm btn-info' id="btn-edit" title="Add/Edit Budget"><i class="fas fa-pencil-alt"></i></label>`
+                        return `<label class='btn btn-sm btn-success' id="btnAcc"><i class="fas fa-check"></i> Approve</label> <label class='btn btn-sm btn-danger' id="btnDec"><i class="fas fa-times"></i> Decline</label> <label class='btn btn-sm btn-info' id="btn-edit" title="Add/Edit Budget"><i class="fas fa-pencil-alt"></i></label>`
                     }
                 }
             ]
@@ -87,6 +87,39 @@
                         data: {
                             id_mform: id,
                             app: 1,
+                            app1: '<?= Date("Y-m-d H:i:s") ?>',
+                        },
+                        success: function() {
+                            window.location.reload()
+                        }
+                    })
+                }
+            })
+        });
+
+        // dec nomor form
+        $('#table_mform tbody').on('click', '#btnDec', function() {
+            let id = tabelMForm.row($(this).parents('tr')).data().id;
+            let nf = tabelMForm.row($(this).parents('tr')).data().nf;
+
+            Swal.fire({
+                icon: 'question',
+                title: 'Are you sure?',
+                text: "You're about to Decline this form",
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes!',
+                cancelButtonText: 'No!',
+            }).then(function(result) {
+                if (result.value) {
+                    $.ajax({
+                        url: '<?= base_url('Approval/acc') ?>',
+                        type: 'POST',
+                        dataType: 'JSON',
+                        data: {
+                            id_mform: id,
+                            app: 2,
                             app1: '<?= Date("Y-m-d H:i:s") ?>',
                         },
                         success: function() {

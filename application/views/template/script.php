@@ -42,6 +42,8 @@
                     render: function(data, type, row) {
                         if (data == "1") {
                             return `<label class='btn btn-sm btn-success acc'>${(row.app1) ? row.app1 : "0000-00-00 00:00:00"}</label>`
+                        } else if (data == "2") {
+                            return `<label class='btn btn-sm btn-danger acc'>${(row.app1) ? row.app1 : "0000-00-00 00:00:00"}</label>`
                         }
                         return `<label class='btn btn-sm btn-primary waiting'><i class="fas fa-minus"></i></label>`
                     }
@@ -55,9 +57,11 @@
                     render: function(data, type, row) {
                         if (row['app'] == "1") {
                             return `<span class="btn btn-sm btn-success" id="btnApp">Approved</span>`
-                        } else {
-                            return `<button class='btn btn-sm btn-info' id="btn-edit" title="Add/Edit Budget"><i class="fas fa-pencil-alt"></i></button> <button class='btn btn-sm btn-danger' id="btn-delete" title="Add/Edit Budget"><i class="fas fa-trash"></i></button>`
+                        } else if (row['app'] == "2") {
+                            return `<span class="btn btn-sm btn-danger" id="btnApp">Declined</span>`
                         }
+
+                        return `<button class='btn btn-sm btn-info' id="btn-edit" title="Add/Edit Budget"><i class="fas fa-pencil-alt"></i></button> <button class='btn btn-sm btn-danger' id="btn-delete" title="Add/Edit Budget"><i class="fas fa-trash"></i></button>`
                     }
                 },
             ]
